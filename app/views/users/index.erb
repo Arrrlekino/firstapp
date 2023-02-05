@@ -1,0 +1,10 @@
+<h1>Users (<%= @users_count %>)</h1>
+
+<br>
+<%= area_chart User.group_by_month(:created_at).maximum(:load_time) %>
+<br>
+<%= area_chart User.group_by_month(:created_at).count, round: 1 %>
+<br>
+<%= line_chart User.group_by_month(:created_at).count %>
+
+#<%= line_chart User.group_by_day(:created_at).count %> 
